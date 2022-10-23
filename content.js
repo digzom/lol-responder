@@ -24,7 +24,15 @@ if (document.readyState) {
   const interval = setInterval(() => {
     const headerTitle = document
       .querySelector("._21nHd")
-      .firstChild.getAttribute("Title");
+      ?.firstChild?.getAttribute("Title");
+
+    let placeHolder = document.querySelector(
+      "#main > footer > div._2BU3P.tm2tP.copyable-area > div > span:nth-child(2) > div > div._2lMWa > div.p3_M1 > div > div.lhggkp7q.qq0sjtgm.jxacihee.qzp46edm.b9fczbqn.bze30y65.jgi8eev7.t35qvd06.m62443ks.rkxvyd19.c5h0bzs2"
+    );
+
+    let span = document.querySelector(
+      "#main > footer > div._2BU3P.tm2tP.copyable-area > div > span:nth-child(2) > div > div._2lMWa > div.p3_M1 > div > div > p > span"
+    );
 
     if (headerTitle == "Ângelo") {
       const msgBar = document.querySelector(
@@ -35,14 +43,9 @@ if (document.readyState) {
       msgSpan.setAttribute("class", "selectable-text copyable-text");
       msgSpan.setAttribute("data-lexical-text", "true");
       msgBar.setAttribute("dir", "ltr");
-
-      const span = document.querySelector(
-        "#main > footer > div._2BU3P.tm2tP.copyable-area > div > span:nth-child(2) > div > div._2lMWa > div.p3_M1 > div > div > p > span"
-      );
-
-      if (span == !null) {
-        clearInterval(interval);
-      }
+      msgBar.textContent = "Foda-se";
+      placeHolder.remove();
+      msgBar.appendChild(msgSpan);
     }
   }, 1000);
 }
